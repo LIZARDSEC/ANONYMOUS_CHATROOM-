@@ -1,0 +1,178 @@
+/* 🌌 Cyberpunk Neon Terminal Chat */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #0f0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🌟 Full-Screen Chat Terminal */
+.chat-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(10, 10, 10, 0.95);
+  border: 3px solid rgba(0, 255, 0, 0.9);
+  box-shadow: 0 0 40px rgba(0, 255, 0, 1);
+  overflow: hidden;
+  animation: neonGlow 2s infinite alternate;
+}
+
+/* 🌀 Pulsating Neon Glow */
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 15px #0f0; }
+  100% { box-shadow: 0 0 30px #0f0; }
+}
+
+/* 🔥 Chat Messages - Full Screen */
+.chat-box {
+  flex-grow: 1;
+  overflow-y: auto;
+  background: black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: 3px solid #0f0;
+  scrollbar-width: thin;
+  scrollbar-color: #0f0 black;
+}
+
+/* 🔥 Scrollbar Customization */
+.chat-box::-webkit-scrollbar {
+  width: 10px;
+}
+.chat-box::-webkit-scrollbar-track {
+  background: black;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #0f0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+/* 🌀 Chat Messages */
+.chat-message {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 18px;
+  max-width: 100%;
+  text-shadow: 0 0 8px #0f0;
+  animation: fadeIn 0.3s ease-in-out;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* ⚡ Message Pop Animation */
+.chat-message:hover {
+  transform: scale(1.02);
+}
+
+/* Alternating Message Colors */
+.chat-message:nth-child(even) {
+  background: rgba(0, 80, 0, 0.9);
+}
+.chat-message:nth-child(odd) {
+  background: rgba(0, 120, 0, 0.9);
+}
+
+/* Message Fade-In Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Username */
+.username {
+  font-weight: bold;
+  color: #0f0;
+  text-shadow: 0 0 15px #0f0;
+  margin-right: 12px;
+}
+
+/* Message Text */
+.message-text {
+  flex-grow: 1;
+  color: #ddd;
+  word-wrap: break-word;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+/* 🌟 Full-Width Typing Area */
+.input-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: black;
+  border-top: 3px solid #0f0;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+}
+
+/* 🎯 Message Input */
+input[type="text"] {
+  flex-grow: 1;
+  background: black;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 14px;
+  font-size: 18px;
+  outline: none;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
+  caret-color: #0f0;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 🔥 Input Focus Effect */
+input[type="text"]:focus {
+  border-color: #3f3;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.9);
+}
+
+/* 🟢 Neon Send Button */
+button {
+  background: #0f0;
+  color: black;
+  font-weight: bold;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.9);
+}
+
+/* Hover Effect */
+button:hover {
+  background: #3f3;
+  transform: scale(1.1);
+}
+
+/* ✨ Flashing Typing Effect */
+@keyframes typingIndicator {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.typing-indicator {
+  font-style: italic;
+  color: #0f0;
+  text-shadow: 0 0 10px #0f0;
+  animation: typingIndicator 1s infinite;
+}
